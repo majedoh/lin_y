@@ -1,13 +1,14 @@
 <?php
+include 'config.php';
 include 'functions.php';
+if ($_REQUEST['t'] !== $ACCESS_T){
+die("Authentication error");
+}
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-//echo replace_linode("proxy1");
-//echo get_status("proxy1");
+//phpinfo();
 $proxies = new Memcached();
 $proxies->addServer("127.0.0.1", 11211);
-echo  $proxies->get("proxy1-status");
-echo  $proxies->get("proxy2");
-echo  $proxies->get("proxy3");
-
+print_r ($proxies->get("proxy"));
+echo "OK";
 ?>

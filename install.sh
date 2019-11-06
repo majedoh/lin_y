@@ -1,4 +1,5 @@
 #!/bin/bash
+AT=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
 read -p 'Enter Your Linode Token: ' TOKEN
 read -p 'Enter Number of proxies: ' PROXNUM
 sudo apt-get -y update
@@ -16,6 +17,9 @@ git clone https://github.com/majedoh/lin_y /var/www/html
 mv /var/www/html/config-sample.php /var/www/html/config.php
 sed -i "s/\"Your Linode access token\"/\"$TOKEN\"/g" /var/www/html/config.php
 sed -i "s/3/$PROXNUM/g" /var/www/html/config.php
+sed -i "s/AT/$AT/g" /var/www/html/config.php
 sudo service apache2 restart
 php /var/www/html/create.php
+echo "Your access token:"
+echo $AT
 echo "Please allow 5 minutes before you start using site"
