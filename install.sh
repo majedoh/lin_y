@@ -1,7 +1,7 @@
 #!/bin/bash
 AT=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-read -p 'Enter Your Linode Token: ' TOKEN
-read -p 'Enter Number of proxies: ' PROXNUM
+read -p 'Enter Your Linode Token: ' TOKEN </dev/tty
+read -p 'Enter Number of proxies: ' PROXNUM </dev/tty
 sudo apt-get -y update
 #sudo apt-get -y upgrade
 sudo add-apt-repository ppa:ondrej/php -y
