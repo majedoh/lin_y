@@ -5,6 +5,6 @@
 // Do NOT forget to give desired privilages
 // This script depends on memchached $ apt in4stall php-memcached && sudo service apache2 restart
 $TOKEN="Your Linode access token";
-$$ACCESS_T="AT";
+$ACCESS_T="AT";
 $proxynum=3; // number of proxies you need
 ?>
