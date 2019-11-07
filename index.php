@@ -3,9 +3,13 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include 'config.php';
-if ($_REQUEST['t'] !== $ACCESS_T){
-  die("Authentication error");
+if (isset($_REQUEST['t'])){
+  if ($_REQUEST['t'] !== $ACCESS_T ){
+    die("Authentication error");
   }
+} else {
+  die("Authentication error");  
+}   
 include 'functions.php';
 header('Content-Type: application/json');
 $proxies = new Memcached();
